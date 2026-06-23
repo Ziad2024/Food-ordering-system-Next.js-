@@ -1,9 +1,28 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import orderService from '@/services/order.service';
+import { useSocket } from '@/providers/SocketProvider';
 
 export function useOrders() {
+  const queryClient = useQueryClient();
+  const { socket } = useSocket();
+
+  useEffect(() => {
+    if (!socket) return;
+
+    const handleOrderStatusUpdated = () => {
+      queryClient.invalidateQueries({ queryKey: ['orders', 'my'] });
+    };
+
+    socket.on('order_status_updated', handleOrderStatusUpdated);
+
+    return () => {
+      socket.off('order_status_updated', handleOrderStatusUpdated);
+    };
+  }, [socket, queryClient]);
+
   return useQuery({
     queryKey: ['orders', 'my'],
     queryFn: async () => {

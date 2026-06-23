@@ -1,8 +1,10 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import orderService from '@/services/order.service';
 import { toast } from 'sonner';
+import { useSocket } from '@/providers/SocketProvider';
 
 interface OrderFilterParams {
   status?: string;
@@ -21,6 +23,29 @@ export function useAdminOrders(filters: OrderFilterParams = {}) {
       return res; // returns { data: Order[], pagination: ... }
     },
   });
+
+  const { socket } = useSocket();
+
+  useEffect(() => {
+    if (!socket) return;
+
+    const handleOrderCreated = () => {
+      queryClient.invalidateQueries({ queryKey: ['admin', 'orders'] });
+      toast.info('New order received!');
+    };
+
+    const handleOrderStatusUpdated = () => {
+      queryClient.invalidateQueries({ queryKey: ['admin', 'orders'] });
+    };
+
+    socket.on('order_created', handleOrderCreated);
+    socket.on('order_status_updated', handleOrderStatusUpdated);
+
+    return () => {
+      socket.off('order_created', handleOrderCreated);
+      socket.off('order_status_updated', handleOrderStatusUpdated);
+    };
+  }, [socket, queryClient]);
 
   const updateStatusMutation = useMutation({
     mutationFn: ({ id, status, description }: { id: string; status: string; description?: string }) =>

@@ -35,11 +35,11 @@ export function useCheckout() {
         paymentMethod,
       });
       clearItems();
-      const { order, stripeUrl } = res.data;
+      const { order, checkoutUrl } = res.data;
 
-      if (paymentMethod === 'card' && stripeUrl) {
+      if (paymentMethod === 'card' && checkoutUrl) {
         // Redirect to Stripe
-        window.location.href = stripeUrl;
+        window.location.href = checkoutUrl;
       } else {
         toast.success('Order placed successfully!');
         router.push(`/${locale}/orders/${order._id}`);

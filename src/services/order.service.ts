@@ -8,7 +8,7 @@ export interface CheckoutPayload {
 
 export interface CheckoutResult {
   order: Order;
-  stripeUrl?: string;
+  checkoutUrl?: string;
 }
 
 export const orderService = {
