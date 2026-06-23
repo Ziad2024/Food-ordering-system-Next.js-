@@ -1,13 +1,36 @@
 {
   "Navbar": {
     "home": "Home",
-    "products": "Products",
+    "products": "Menu",
     "orders": "My Orders",
     "cart": "Cart",
     "login": "Login",
     "register": "Register",
     "logout": "Logout",
-    "admin": "Admin Dashboard"
+    "admin": "Dashboard"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "step_address": "Address",
+    "step_payment": "Payment"
+  },
+  "home": {
+    "hero_title": "Taste the Difference",
+    "hero_subtitle": "Order fresh, handcrafted meals delivered straight to your door.",
+    "cta_menu": "Browse Menu",
+    "cta_order": "Order Now",
+    "why_title": "Why FlavorRush?",
+    "feature_fast": "Fast Delivery",
+    "feature_fast_desc": "Hot meals at your door in 30 minutes or less.",
+    "feature_fresh": "100% Fresh",
+    "feature_fresh_desc": "Ingredients sourced daily from local farms.",
+    "feature_pay": "Secure Payment",
+    "feature_pay_desc": "Pay safely by card via Stripe or cash on delivery."
+  },
+  "footer": {
+    "tagline": "Crafted with ❤️ for food lovers.",
+    "links_title": "Quick Links",
+    "copyright": "All rights reserved."
   },
   "Common": {
     "loading": "Loading...",

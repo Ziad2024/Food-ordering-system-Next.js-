@@ -5,14 +5,16 @@ import { CheckoutStepper } from '@/features/checkout/components/CheckoutStepper'
 import { AddressForm } from '@/features/checkout/components/AddressForm';
 import { PaymentSelector } from '@/features/checkout/components/PaymentSelector';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export default function CheckoutPage() {
   const { step, goTo, formData, saveAddress, savePayment, isLoading } = useCheckout();
+  const t = useTranslations('checkout');
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white pt-24 pb-16">
       <div className="container mx-auto px-4 max-w-lg">
-        <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+        <h1 className="text-3xl font-bold mb-6">{t('title')}</h1>
         <CheckoutStepper current={step} />
 
         <AnimatePresence mode="wait">

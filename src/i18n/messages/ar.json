@@ -1,13 +1,36 @@
 {
   "Navbar": {
     "home": "الرئيسية",
-    "products": "المنتجات",
+    "products": "القائمة",
     "orders": "طلباتي",
     "cart": "السلة",
     "login": "تسجيل الدخول",
     "register": "إنشاء حساب",
     "logout": "تسجيل الخروج",
     "admin": "لوحة التحكم"
+  },
+  "checkout": {
+    "title": "إتمام الطلب",
+    "step_address": "العنوان",
+    "step_payment": "الدفع"
+  },
+  "home": {
+    "hero_title": "اكتشف الفرق",
+    "hero_subtitle": "اطلب وجباتك الطازجة والمحضّرة يدوياً وسنوصّلها إلى بابك.",
+    "cta_menu": "تصفح القائمة",
+    "cta_order": "اطلب الآن",
+    "why_title": "لماذا فليفر راش؟",
+    "feature_fast": "توصيل سريع",
+    "feature_fast_desc": "وجبات ساخنة تصلك في أقل من ٣٠ دقيقة.",
+    "feature_fresh": "١٠٠٪ طازج",
+    "feature_fresh_desc": "مكونات طازجة يومياً من مزارع محلية.",
+    "feature_pay": "دفع آمن",
+    "feature_pay_desc": "ادفع بأمان عبر البطاقة أو نقداً عند الاستلام."
+  },
+  "footer": {
+    "tagline": "صُنع بـ ❤️ لعشّاق الطعام.",
+    "links_title": "روابط سريعة",
+    "copyright": "جميع الحقوق محفوظة."
   },
   "Common": {
     "loading": "جاري التحميل...",

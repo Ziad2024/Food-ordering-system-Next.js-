@@ -1,23 +1,24 @@
 'use client';
 
 import { CheckoutStep } from '@/features/checkout/hooks/useCheckout';
-
-const STEPS: CheckoutStep[] = ['address', 'payment'];
-const LABELS: Record<CheckoutStep, string> = {
-  address: 'Address',
-  payment: 'Payment',
-};
+import { useTranslations } from 'next-intl';
 
 interface Props {
   current: CheckoutStep;
 }
 
 export function CheckoutStepper({ current }: Props) {
-  const currentIdx = STEPS.indexOf(current);
+  const t = useTranslations('checkout');
+  const STEPS_LIST: CheckoutStep[] = ['address', 'payment'];
+  const currentIdx = STEPS_LIST.indexOf(current);
+  const LABELS: Record<CheckoutStep, string> = {
+    address: t('step_address'),
+    payment: t('step_payment'),
+  };
 
   return (
     <div className="flex items-center gap-0 mb-8">
-      {STEPS.map((step, idx) => {
+      {STEPS_LIST.map((step, idx) => {
         const isDone = idx < currentIdx;
         const isActive = idx === currentIdx;
         return (
@@ -42,7 +43,7 @@ export function CheckoutStepper({ current }: Props) {
                 {LABELS[step]}
               </span>
             </div>
-            {idx < STEPS.length - 1 && (
+            {idx < STEPS_LIST.length - 1 && (
               <div
                 className={`flex-1 h-0.5 mx-2 mt-[-12px] transition-colors ${
                   isDone ? 'bg-green-500' : 'bg-white/10'

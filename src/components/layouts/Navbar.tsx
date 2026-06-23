@@ -32,15 +32,18 @@ export function Navbar() {
   }
 
   if (isAuthenticated && user?.role === 'admin') {
-    navLinks.push({ href: `/${locale}/admin/products`, label: 'Dashboard' });
+    navLinks.push({ href: `/${locale}/admin/dashboard`, label: t('admin') });
   }
 
   return (
     <header className="fixed top-0 inset-x-0 z-30 bg-zinc-900/80 backdrop-blur-md border-b border-white/10">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href={`/${locale}`} className="text-xl font-bold text-amber-400 tracking-tight">
-          🍽️ Flavor
+        <Link href={`/${locale}`} className="flex items-center gap-2 group">
+          <span className="text-2xl">🍽️</span>
+          <span className="text-lg font-extrabold tracking-tight text-white group-hover:text-amber-400 transition-colors">
+            Flavor<span className="text-amber-400">Rush</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
