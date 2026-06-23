@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useEffect } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import { CheckCircle2, ShoppingBag } from 'lucide-react';
