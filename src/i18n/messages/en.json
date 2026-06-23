@@ -1,0 +1,235 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "products": "Products",
+    "cart": "Cart",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "admin": "Admin Dashboard"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "arabic": "العربية",
+    "english": "English"
+  },
+  "auth": {
+    "title": {
+      "login": "Sign In to Your Account",
+      "register": "Create an Account",
+      "forgot_password": "Forgot Password",
+      "reset_password": "Reset Password",
+      "verify_otp": "Verify Code"
+    },
+    "actions": {
+      "login": "Sign In",
+      "register": "Register",
+      "forgot_password": "Send Link",
+      "reset_password": "Save Password",
+      "verify_otp": "Verify",
+      "resend_otp": "Resend Code"
+    },
+    "labels": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "otp": "Verification Code",
+      "token": "Reset Token"
+    },
+    "placeholders": {
+      "name": "Enter your full name",
+      "email": "Enter your email",
+      "phone": "Enter your phone number",
+      "password": "Enter password",
+      "confirmPassword": "Re-enter password",
+      "otp": "Enter 6-digit code",
+      "token": "Enter reset token"
+    },
+    "links": {
+      "need_account": "Don't have an account? Sign up",
+      "have_account": "Already have an account? Sign in",
+      "forgot_password": "Forgot Password?",
+      "resend_in": "Resend available in {time}"
+    },
+    "errors": {
+      "name_min": "Name must be at least 2 characters",
+      "name_max": "Name cannot exceed 60 characters",
+      "invalid_email": "Invalid email address",
+      "phone_min": "Phone number must be at least 8 characters",
+      "phone_max": "Phone number is too long",
+      "password_min": "Password must be at least 6 characters",
+      "confirm_password_min": "Confirm password must be at least 6 characters",
+      "passwords_mismatch": "Passwords do not match",
+      "otp_length": "OTP must be exactly 6 characters",
+      "device_id_required": "Device identifier is required",
+      "token_required": "Reset token is required"
+    }
+  },
+  "cart": {
+    "page_title": "Your Cart",
+    "your_cart": "Your Cart",
+    "empty_title": "Your cart is empty",
+    "empty_subtitle": "Looks like you haven't added anything yet. Start exploring our menu!",
+    "browse_menu": "Browse Menu",
+    "order_summary": "Order Summary",
+    "items_count": "{count, plural, one {# item} other {# items}}",
+    "delivery_fee": "Delivery Fee",
+    "free": "Free",
+    "total": "Total",
+    "proceed_checkout": "Proceed to Checkout",
+    "clear_cart": "Clear Cart",
+    "close_cart": "Close cart",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "remove": "Remove item",
+    "add_to_cart": "Add to Cart"
+  },
+  "orders": {
+    "status": {
+      "pending_payment": "Pending Payment",
+      "confirmed": "Confirmed",
+      "preparing": "Preparing",
+      "out_for_delivery": "Out For Delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "timeline": {
+      "pending_payment": "Awaiting Payment Confirmation",
+      "confirmed": "Order Confirmed",
+      "preparing": "Preparing your meal",
+      "out_for_delivery": "Out for delivery",
+      "delivered": "Delivered successfully",
+      "cancelled": "Order Cancelled"
+    },
+    "steps": {
+      "confirmed": "Confirmed",
+      "preparing": "Preparing",
+      "out_for_delivery": "On the Way",
+      "delivered": "Delivered",
+      "cancelled_msg": "This order has been cancelled."
+    },
+    "card": {
+      "total": "Total",
+      "view_details": "View Details"
+    },
+    "page": {
+      "title": "Your Orders",
+      "error": "Failed to load orders.",
+      "retry": "Retry",
+      "empty_title": "No orders yet",
+      "empty_subtitle": "It looks like you haven't placed any orders yet. Try our delicious menu!",
+      "browse_menu": "Browse Menu"
+    },
+    "detail": {
+      "not_found": "Order not found",
+      "back_to_orders": "Back to Orders",
+      "summary_title": "Order Summary",
+      "total": "Total",
+      "delivery_address": "Delivery Address",
+      "payment_method": "Payment Method",
+      "card": "Credit/Debit Card",
+      "cash": "Cash on Delivery",
+      "pending": "Pending Payment",
+      "paid": "Paid",
+      "failed": "Payment Failed",
+      "timeline_title": "Order Status Timeline"
+    }
+  },
+  "admin": {
+    "sidebar": {
+      "title": "RestoAdmin",
+      "dashboard": "Dashboard",
+      "products": "Products",
+      "orders": "Orders",
+      "analytics": "Analytics",
+      "management": "Management",
+      "store_view": "Go to Store",
+      "logout": "Sign Out"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Overview of Resto performance and stats.",
+      "revenue": "Total Revenue",
+      "orders": "Total Orders",
+      "active_users": "Active Users",
+      "pending_orders": "Pending Orders",
+      "top_products": {
+        "title": "Top Selling Products",
+        "empty": "No sales data available yet.",
+        "name": "Product Name",
+        "sold": "Sold"
+      },
+      "sales_trends": {
+        "title": "Sales Revenue Trends",
+        "empty": "No trend data available."
+      }
+    },
+    "products": {
+      "title": "Products & Categories",
+      "subtitle": "Manage restaurant products menu catalog and categories.",
+      "add_btn": "Add Product",
+      "table": {
+        "image": "Image",
+        "name": "Product Name",
+        "category": "Category",
+        "price": "Price",
+        "available": "Available",
+        "actions": "Actions"
+      },
+      "form": {
+        "edit_title": "Edit Product",
+        "create_title": "Create Product",
+        "name_en": "Name (English)",
+        "name_ar": "Name (Arabic)",
+        "desc_en": "Description (English)",
+        "desc_ar": "Description (Arabic)",
+        "price": "Price ($)",
+        "category": "Category",
+        "image": "Image File",
+        "is_available": "Is Available for Ordering",
+        "cancel": "Cancel",
+        "submit": "Save Changes"
+      },
+      "category": {
+        "title": "Categories",
+        "name_en": "Name (English)",
+        "name_ar": "Name (Arabic)",
+        "image": "Category Image",
+        "add": "Add Category"
+      }
+    },
+    "orders": {
+      "title": "Orders Management",
+      "subtitle": "View and update status of all incoming orders.",
+      "filter_all": "All Orders",
+      "order_id": "Order ID",
+      "customer": "Customer",
+      "total": "Total Amount",
+      "payment": "Payment Status",
+      "status": "Order Status",
+      "actions": "Transition Status"
+    },
+    "analytics": {
+      "title": "Detailed Analytics",
+      "subtitle": "Deep-dive view into sales and top sellers."
+    },
+    "management": {
+      "title": "User Management",
+      "subtitle": "Manage user roles and active system statuses.",
+      "name": "User Name",
+      "phone": "Phone Number",
+      "role": "System Role",
+      "status": "Status",
+      "actions": "Actions",
+      "active": "Active",
+      "inactive": "Deactivated",
+      "toggle_role": "Toggle Role"
+    }
+  }
+}
