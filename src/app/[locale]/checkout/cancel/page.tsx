@@ -1,11 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
+import { Suspense } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import { XCircle, ArrowLeft } from 'lucide-react';
 
-export default function CheckoutCancelPage() {
+function CancelContent() {
   const router = useRouter();
   const { locale } = useParams<{ locale: string }>();
   const searchParams = useSearchParams();
@@ -24,7 +23,7 @@ export default function CheckoutCancelPage() {
         <div className="space-y-3">
           <h1 className="text-3xl font-extrabold tracking-tight">Payment Cancelled</h1>
           <p className="text-zinc-400 text-sm">
-            It looks like your payment transaction was cancelled. Don't worry, your cart is safe and you haven't been charged.
+            It looks like your payment transaction was cancelled. Don&apos;t worry, your cart is safe and you haven&apos;t been charged.
           </p>
         </div>
 
@@ -45,5 +44,13 @@ export default function CheckoutCancelPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function CheckoutCancelPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-zinc-950" />}>
+      <CancelContent />
+    </Suspense>
   );
 }

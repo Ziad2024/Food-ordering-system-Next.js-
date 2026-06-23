@@ -1,13 +1,11 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import { CheckCircle2, ShoppingBag } from 'lucide-react';
 import { toast } from 'sonner';
 
-export default function CheckoutSuccessPage() {
+function SuccessContent() {
   const router = useRouter();
   const { locale } = useParams<{ locale: string }>();
   const searchParams = useSearchParams();
@@ -63,5 +61,13 @@ export default function CheckoutSuccessPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-zinc-950" />}>
+      <SuccessContent />
+    </Suspense>
   );
 }
