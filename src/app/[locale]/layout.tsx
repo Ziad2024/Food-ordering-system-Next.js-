@@ -44,7 +44,9 @@ export default async function LocaleLayout({
               <Navbar />
               <CartDrawerPortal />
               <ErrorBoundary>
-                {children}
+                <main className="flex-grow pt-16">
+                  {children}
+                </main>
               </ErrorBoundary>
               <Footer />
             </SocketProvider>

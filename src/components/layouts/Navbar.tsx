@@ -27,6 +27,10 @@ export function Navbar() {
     { href: `/${locale}/products`, label: t('products') },
   ];
 
+  if (isAuthenticated && user?.role === 'admin') {
+    navLinks.push({ href: `/${locale}/admin/products`, label: 'Dashboard' });
+  }
+
   return (
     <header className="fixed top-0 inset-x-0 z-30 bg-zinc-900/80 backdrop-blur-md border-b border-white/10">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">

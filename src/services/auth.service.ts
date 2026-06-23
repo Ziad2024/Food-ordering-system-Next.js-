@@ -29,8 +29,8 @@ export const authService = {
     return res.data;
   },
 
-  async login(data: LoginInput): Promise<ApiResponse<OtpResponseData>> {
-    const res = await axiosClient.post<ApiResponse<OtpResponseData>>('/auth/login', data);
+  async login(data: LoginInput): Promise<ApiResponse<LoginVerifyData>> {
+    const res = await axiosClient.post<ApiResponse<LoginVerifyData>>('/auth/login', data);
     return res.data;
   },
 

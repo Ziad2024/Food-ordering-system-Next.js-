@@ -10,6 +10,7 @@ import { loginSchema, LoginInput } from '../schemas/auth.schema';
 import authService from '@/services/auth.service';
 import FormField from '@/components/forms/FormField';
 import SubmitButton from '@/components/forms/SubmitButton';
+import { useAuthStore } from '@/store/auth.store';
 
 export default function LoginForm() {
   const t = useTranslations('auth');
@@ -24,12 +25,17 @@ export default function LoginForm() {
     },
   });
 
+  const setAuth = useAuthStore((state) => state.setAuth);
+
   const onSubmit = async (data: LoginInput) => {
     setIsLoading(true);
     try {
       const res = await authService.login(data);
-      toast.success(res.message || 'OTP Sent successfully.');
-      router.push(`/verify-otp?email=${encodeURIComponent(data.email)}`);
+      if (res.data) {
+        setAuth(res.data.user, res.data.accessToken);
+        toast.success(res.message || 'Logged in successfully.');
+        router.push('/');
+      }
     } catch (err: any) {
       toast.error(err.message || 'Authentication failed');
     } finally {
