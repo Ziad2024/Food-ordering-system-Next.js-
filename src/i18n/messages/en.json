@@ -2,6 +2,7 @@
   "Navbar": {
     "home": "Home",
     "products": "Products",
+    "orders": "My Orders",
     "cart": "Cart",
     "login": "Login",
     "register": "Register",

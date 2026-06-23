@@ -1,7 +1,9 @@
 import { z } from 'zod';
 
 export const addressSchema = z.object({
-  addressLine: z.string().min(5, 'Address is required'),
+  addressLine: z.string()
+    .min(1, 'Address is required')
+    .min(3, 'Address must be at least 3 characters'),
   building: z.string().optional(),
   floor: z.string().optional(),
   apartment: z.string().optional(),

@@ -27,6 +27,10 @@ export function Navbar() {
     { href: `/${locale}/products`, label: t('products') },
   ];
 
+  if (isAuthenticated) {
+    navLinks.push({ href: `/${locale}/orders`, label: t('orders') });
+  }
+
   if (isAuthenticated && user?.role === 'admin') {
     navLinks.push({ href: `/${locale}/admin/products`, label: 'Dashboard' });
   }
