@@ -7,7 +7,7 @@ import { useCartStore } from '@/features/cart/store/cart.store';
 import orderService from '@/services/order.service';
 import { CheckoutFormValues } from '@/features/checkout/schemas/checkout.schema';
 
-export type CheckoutStep = 'address' | 'payment' | 'confirm';
+export type CheckoutStep = 'address' | 'payment';
 
 export function useCheckout() {
   const router = useRouter();
@@ -25,23 +25,19 @@ export function useCheckout() {
     setStep('payment');
   };
 
-  const savePayment = (paymentMethod: 'card' | 'cash') => {
+  const savePayment = async (paymentMethod: 'card' | 'cash') => {
+    if (!formData.address) return;
     setFormData((prev) => ({ ...prev, paymentMethod }));
-    setStep('confirm');
-  };
-
-  const submitOrder = async () => {
-    if (!formData.address || !formData.paymentMethod) return;
     setIsLoading(true);
     try {
       const res = await orderService.checkout({
         address: formData.address,
-        paymentMethod: formData.paymentMethod,
+        paymentMethod,
       });
       clearItems();
       const { order, stripeUrl } = res.data;
 
-      if (formData.paymentMethod === 'card' && stripeUrl) {
+      if (paymentMethod === 'card' && stripeUrl) {
         // Redirect to Stripe
         window.location.href = stripeUrl;
       } else {
@@ -55,5 +51,5 @@ export function useCheckout() {
     }
   };
 
-  return { step, goTo, formData, saveAddress, savePayment, submitOrder, isLoading };
+  return { step, goTo, formData, saveAddress, savePayment, isLoading };
 }

@@ -2,11 +2,10 @@
 
 import { CheckoutStep } from '@/features/checkout/hooks/useCheckout';
 
-const STEPS: CheckoutStep[] = ['address', 'payment', 'confirm'];
+const STEPS: CheckoutStep[] = ['address', 'payment'];
 const LABELS: Record<CheckoutStep, string> = {
   address: 'Address',
   payment: 'Payment',
-  confirm: 'Confirm',
 };
 
 interface Props {

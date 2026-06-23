@@ -4,11 +4,10 @@ import { useCheckout } from '@/features/checkout/hooks/useCheckout';
 import { CheckoutStepper } from '@/features/checkout/components/CheckoutStepper';
 import { AddressForm } from '@/features/checkout/components/AddressForm';
 import { PaymentSelector } from '@/features/checkout/components/PaymentSelector';
-import { OrderSummaryPanel } from '@/features/checkout/components/OrderSummaryPanel';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function CheckoutPage() {
-  const { step, goTo, formData, saveAddress, savePayment, submitOrder, isLoading } = useCheckout();
+  const { step, goTo, formData, saveAddress, savePayment, isLoading } = useCheckout();
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white pt-24 pb-16">
@@ -35,13 +34,6 @@ export default function CheckoutPage() {
               <PaymentSelector
                 onNext={savePayment}
                 onBack={() => goTo('address')}
-              />
-            )}
-            {step === 'confirm' && (
-              <OrderSummaryPanel
-                formData={formData}
-                onBack={() => goTo('payment')}
-                onConfirm={submitOrder}
                 isLoading={isLoading}
               />
             )}

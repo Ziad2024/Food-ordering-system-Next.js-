@@ -6,6 +6,7 @@ import { useState } from 'react';
 interface Props {
   onNext: (method: 'card' | 'cash') => void;
   onBack: () => void;
+  isLoading?: boolean;
 }
 
 const OPTIONS = [
@@ -23,7 +24,7 @@ const OPTIONS = [
   },
 ];
 
-export function PaymentSelector({ onNext, onBack }: Props) {
+export function PaymentSelector({ onNext, onBack, isLoading }: Props) {
   const [selected, setSelected] = useState<'card' | 'cash'>('cash');
 
   return (
@@ -33,12 +34,13 @@ export function PaymentSelector({ onNext, onBack }: Props) {
         <button
           key={opt.value}
           type="button"
+          disabled={isLoading}
           onClick={() => setSelected(opt.value)}
           className={`w-full flex items-center gap-4 p-4 rounded-2xl border-2 transition-all text-start ${
             selected === opt.value
               ? 'border-amber-500 bg-amber-500/10'
               : 'border-white/10 bg-white/5 hover:border-white/20'
-          }`}
+          } ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           <div className={`p-3 rounded-xl ${selected === opt.value ? 'bg-amber-500 text-black' : 'bg-white/10 text-white'}`}>
             {opt.icon}
@@ -55,14 +57,26 @@ export function PaymentSelector({ onNext, onBack }: Props) {
         </button>
       ))}
       <div className="flex gap-3 mt-2">
-        <button onClick={onBack} className="flex-1 py-3 border border-white/20 hover:bg-white/5 rounded-xl text-sm transition-colors">
+        <button
+          onClick={onBack}
+          disabled={isLoading}
+          className="flex-1 py-3 border border-white/20 hover:bg-white/5 rounded-xl text-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
           ← Back
         </button>
         <button
           onClick={() => onNext(selected)}
-          className="flex-1 py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-xl transition-colors"
+          disabled={isLoading}
+          className="flex-1 py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
-          Continue →
+          {isLoading ? (
+            <>
+              <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+              Placing Order...
+            </>
+          ) : (
+            'Place Order →'
+          )}
         </button>
       </div>
     </div>
