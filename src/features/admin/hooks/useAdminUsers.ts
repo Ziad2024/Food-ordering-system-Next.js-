@@ -11,7 +11,12 @@ export function useAdminUsers() {
     queryKey: ['admin', 'users'],
     queryFn: async () => {
       const res = await adminService.getUsers();
-      return res.data;
+      // Normalize MongoDB _id to id so UsersTable actions work
+      const users = (res.data as any[]).map((u) => ({
+        ...u,
+        id: u.id || u._id,
+      }));
+      return users;
     },
   });
 

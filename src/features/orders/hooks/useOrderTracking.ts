@@ -19,10 +19,15 @@ export function useOrderTracking(orderId: string) {
   // Subscribe to real-time status updates
   useEffect(() => {
     if (!orderId || !socket) return;
-    const handler = (payload: { orderId: string; status: string; timeline: Order['timeline'] }) => {
+    const handler = (payload: { orderId: string; status: string; paymentStatus?: string; timeline: Order['timeline'] }) => {
       if (payload.orderId !== orderId) return;
       setLiveOrder((prev) =>
-        prev ? { ...prev, status: payload.status as Order['status'], timeline: payload.timeline } : prev
+        prev ? {
+          ...prev,
+          status: payload.status as Order['status'],
+          ...(payload.paymentStatus ? { paymentStatus: payload.paymentStatus as Order['paymentStatus'] } : {}),
+          timeline: payload.timeline
+        } : prev
       );
       toast.info(`Order status updated: ${payload.status.replace(/_/g, ' ')}`);
     };
