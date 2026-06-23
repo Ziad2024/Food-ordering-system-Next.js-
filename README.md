@@ -7,11 +7,11 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![React Query](https://img.shields.io/badge/TanStack_Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white)
 ![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
-![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 **A modern, bilingual (English/Arabic) food ordering web application**
 
-[Live Demo](https://foodorderingep.netlify.app) · [Backend Repo](https://github.com/Ziad2024/Food-Ordering-System-Node.js)
+[Live Demo](https://food-ordering-system-next-js.vercel.app) · [Backend Repo](https://github.com/Ziad2024/Food-Ordering-System-Node.js)
 
 </div>
 
@@ -214,21 +214,11 @@ The checkout is a 2-step flow managed by the `useCheckout` hook:
 
 ## 🚢 Deployment
 
-Deployed on **Netlify** with automatic deploys on push to `main`.
+Deployed on **Vercel** with automatic deploys on push to `main`.
 
-**Environment variables** are set in the Netlify dashboard under Site Settings → Environment Variables.
+**Environment variables** are set in the Vercel dashboard under Project Settings → Environment Variables.
 
-```toml
-# netlify.toml
-[build]
-  command = "npm run build"
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-```
-
-**Live URL:** `https://foodorderingep.netlify.app`
+**Live URL:** `https://food-ordering-system-next-js.vercel.app`
 
 ---
 
