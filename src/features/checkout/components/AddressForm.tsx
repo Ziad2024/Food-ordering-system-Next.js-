@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { addressSchema } from '@/features/checkout/schemas/checkout.schema';
 import { CheckoutFormValues } from '@/features/checkout/schemas/checkout.schema';
+import { useTranslations } from 'next-intl';
 
 type AddressValues = CheckoutFormValues['address'];
 
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export function AddressForm({ defaultValues, onNext }: Props) {
+  const t = useTranslations('checkout');
   const { register, handleSubmit, formState: { errors } } = useForm<AddressValues>({
     resolver: zodResolver(addressSchema),
     defaultValues,
@@ -35,18 +37,18 @@ export function AddressForm({ defaultValues, onNext }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onNext)} className="space-y-4">
-      <h2 className="text-lg font-bold mb-4">Delivery Address</h2>
-      {field('Street Address', 'addressLine', true)}
+      <h2 className="text-lg font-bold mb-4">{t('delivery_address')}</h2>
+      {field(t('street_address'), 'addressLine', true)}
       <div className="grid grid-cols-3 gap-3">
-        {field('Building', 'building')}
-        {field('Floor', 'floor')}
-        {field('Apartment', 'apartment')}
+        {field(t('building'), 'building')}
+        {field(t('floor'), 'floor')}
+        {field(t('apartment'), 'apartment')}
       </div>
       <button
         type="submit"
         className="w-full py-3 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-xl transition-colors mt-2"
       >
-        Continue to Payment →
+        {t('continue_payment')}
       </button>
     </form>
   );

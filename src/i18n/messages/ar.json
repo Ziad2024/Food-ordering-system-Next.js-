@@ -12,7 +12,21 @@
   "checkout": {
     "title": "إتمام الطلب",
     "step_address": "العنوان",
-    "step_payment": "الدفع"
+    "step_payment": "الدفع",
+    "delivery_address": "عنوان التوصيل",
+    "street_address": "اسم الشارع والحي",
+    "building": "المبنى / رقم العقار",
+    "floor": "الطابق",
+    "apartment": "رقم الشقة",
+    "continue_payment": "الاستمرار إلى الدفع ←",
+    "payment_method": "طريقة الدفع",
+    "cash_label": "الدفع عند الاستلام",
+    "cash_desc": "ادفع نقداً عند وصول طلبك",
+    "card_label": "الدفع بالبطاقة",
+    "card_desc": "دفع آمن وسريع عبر Stripe",
+    "back": "→ الرجوع",
+    "place_order": "إتمام الطلب ←",
+    "placing_order": "جاري إرسال الطلب..."
   },
   "home": {
     "hero_title": "اكتشف الفرق",

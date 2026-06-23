@@ -12,7 +12,21 @@
   "checkout": {
     "title": "Checkout",
     "step_address": "Address",
-    "step_payment": "Payment"
+    "step_payment": "Payment",
+    "delivery_address": "Delivery Address",
+    "street_address": "Street Address",
+    "building": "Building",
+    "floor": "Floor",
+    "apartment": "Apartment",
+    "continue_payment": "Continue to Payment →",
+    "payment_method": "Payment Method",
+    "cash_label": "Cash on Delivery",
+    "cash_desc": "Pay when your order arrives",
+    "card_label": "Pay with Card",
+    "card_desc": "Secure checkout via Stripe",
+    "back": "← Back",
+    "place_order": "Place Order →",
+    "placing_order": "Placing Order..."
   },
   "home": {
     "hero_title": "Taste the Difference",

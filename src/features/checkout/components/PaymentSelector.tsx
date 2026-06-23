@@ -2,6 +2,7 @@
 
 import { CreditCard, Banknote } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   onNext: (method: 'card' | 'cash') => void;
@@ -9,28 +10,29 @@ interface Props {
   isLoading?: boolean;
 }
 
-const OPTIONS = [
-  {
-    value: 'cash' as const,
-    icon: <Banknote size={24} />,
-    label: 'Cash on Delivery',
-    description: 'Pay when your order arrives',
-  },
-  {
-    value: 'card' as const,
-    icon: <CreditCard size={24} />,
-    label: 'Pay with Card',
-    description: 'Secure checkout via Stripe',
-  },
-];
-
 export function PaymentSelector({ onNext, onBack, isLoading }: Props) {
+  const t = useTranslations('checkout');
   const [selected, setSelected] = useState<'card' | 'cash'>('cash');
+
+  const optionsList = [
+    {
+      value: 'cash' as const,
+      icon: <Banknote size={24} />,
+      label: t('cash_label'),
+      description: t('cash_desc'),
+    },
+    {
+      value: 'card' as const,
+      icon: <CreditCard size={24} />,
+      label: t('card_label'),
+      description: t('card_desc'),
+    },
+  ];
 
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-bold mb-4">Payment Method</h2>
-      {OPTIONS.map((opt) => (
+      <h2 className="text-lg font-bold mb-4">{t('payment_method')}</h2>
+      {optionsList.map((opt) => (
         <button
           key={opt.value}
           type="button"
@@ -62,7 +64,7 @@ export function PaymentSelector({ onNext, onBack, isLoading }: Props) {
           disabled={isLoading}
           className="flex-1 py-3 border border-white/20 hover:bg-white/5 rounded-xl text-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          ← Back
+          {t('back')}
         </button>
         <button
           onClick={() => onNext(selected)}
@@ -72,10 +74,10 @@ export function PaymentSelector({ onNext, onBack, isLoading }: Props) {
           {isLoading ? (
             <>
               <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-              Placing Order...
+              {t('placing_order')}
             </>
           ) : (
-            'Place Order →'
+            t('place_order')
           )}
         </button>
       </div>
