@@ -41,14 +41,14 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <QueryProvider>
             <SocketProvider>
-              <Navbar />
+              <Navbar locale={locale} />
               <CartDrawerPortal />
               <ErrorBoundary>
                 <main className="flex-grow pt-16">
                   {children}
                 </main>
               </ErrorBoundary>
-              <Footer />
+              <Footer locale={locale} />
             </SocketProvider>
           </QueryProvider>
         </NextIntlClientProvider>

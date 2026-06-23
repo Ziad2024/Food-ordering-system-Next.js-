@@ -3,14 +3,17 @@
 import { ShoppingCart, Menu, X, Globe } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { usePathname, useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useCartStore } from '@/features/cart/store/cart.store';
 import { useAuthStore } from '@/store/auth.store';
 
-export function Navbar() {
+interface NavbarProps {
+  locale: string;
+}
+
+export function Navbar({ locale }: NavbarProps) {
   const t = useTranslations('Navbar');
-  const { locale } = useParams<{ locale: string }>();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 

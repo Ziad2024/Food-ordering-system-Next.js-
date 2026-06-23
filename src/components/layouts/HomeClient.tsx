@@ -1,11 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Zap, Leaf, CreditCard, Star } from 'lucide-react';
+
+interface HomeClientProps {
+  locale: string;
+}
 
 const FOOD_IMAGES = [
   'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80',
@@ -16,20 +19,19 @@ const FOOD_IMAGES = [
   'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400&q=80',
 ];
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
 };
 
-export default function HomeClient() {
+export default function HomeClient({ locale }: HomeClientProps) {
   const t = useTranslations('home');
   const nt = useTranslations('Navbar');
-  const { locale } = useParams<{ locale: string }>();
   const isAr = locale === 'ar';
 
   return (
